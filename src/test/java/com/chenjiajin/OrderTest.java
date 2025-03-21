@@ -1,14 +1,19 @@
 package com.chenjiajin;
 
-import com.chenjiajin.model.Order;
+import com.chenjiajin.dto.Order;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * 小测试 order.drl
+ */
+@Slf4j
 @SpringBootTest
-public class DroolsDemosApplicationTests {
+public class OrderTest {
 
     @Autowired
     private KieContainer kieContainer;
@@ -32,18 +37,6 @@ public class DroolsDemosApplicationTests {
         session.dispose();
 
         System.err.println("订单金额：" + order.getAmout() + " ,增加积分：" + order.getScore());
-    }
-
-
-
-    @Test
-    public void FeeRuleTest() {
-        // 开启会话
-        KieSession kieSession = kieContainer.newKieSession();
-        // 触发规则
-        kieSession.fireAllRules();
-        // 中止会话
-        kieSession.dispose();
     }
 
 

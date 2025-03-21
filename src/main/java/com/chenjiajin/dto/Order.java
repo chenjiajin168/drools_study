@@ -1,4 +1,4 @@
-package com.chenjiajin.model;
+package com.chenjiajin.dto;
 
 import lombok.Data;
 
